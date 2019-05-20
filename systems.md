@@ -16,7 +16,7 @@ Sistema da embarcação Guarapuvu II - Zênite Solar
 ## Instalados no Sistema:
 - [ ] [ZSS18](https://github.com/ZeniteSolar/ZSS18) - Shield Simplificado para o Módulo Controlador de Carga 2018  
 - [ ] [MCC18](https://github.com/ZeniteSolar/MCC18) - Módulo Controlador de Carga 2018  
-- [ ] [MAB19](https://github.com/ZeniteSolar/MAB18) - Modulo de Acionamento das Bombas de Porão 2018  
+- [ ] [MAB18](https://github.com/ZeniteSolar/MAB18) - Modulo de Acionamento das Bombas de Porão 2018  
 - [ ] [MA18V17](https://github.com/ZeniteSolar/MA18V17) - Módulo Fonte Principal 2017  
 - [ ] [MIC17](https://github.com/ZeniteSolar/MIC17) - Módulo de Interface de Controle 2017  
 - [ ] [MCS17](https://github.com/ZeniteSolar/MCS17) - Módulo Carregamento do Sistema 2017  
