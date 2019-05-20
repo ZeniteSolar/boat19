@@ -1,16 +1,19 @@
-## Módulos em Fase de Desenvolvimento:
-[MT19](https://github.com/ZeniteSolar/MT19) - Modulo Tacômetro 2019  
-[MRPC19](https://github.com/ZeniteSolar/MRPC19) - Modulo CAN para RaspberryPI Zero 2019  
-[MAB19](https://github.com/ZeniteSolar/MAB19) - Modulo de Acionamento das Bombas de Porão 2019  
+# Lista de Módulo
+Sistema da embarcação Guarapuvu II - Zênite Solar
+
+## Em Fase de Desenvolvimento:
+[MT19](https://github.com/ZeniteSolar/MT19) - Módulo Tacômetro 2019  
+[MRPC19](https://github.com/ZeniteSolar/MRPC19) - Módulo CAN para RaspberryPI Zero 2019  
+[MAB19](https://github.com/ZeniteSolar/MAB19) - Módulo de Acionamento das Bombas de Porão 2019  
 [MCA19](https://github.com/ZeniteSolar/MCA19) - Módulo de Carregamento das Baterias Auxiliares 2019  
 [MCS19](https://github.com/ZeniteSolar/MCS19) - Módulo Carregamento do Sistema 2019  
-[MCT19](https://github.com/ZeniteSolar/MCT19) - Módlo de Controle de Temperatura 2019  
+[MCT19](https://github.com/ZeniteSolar/MCT19) - Módulo de Controle de Temperatura 2019  
 [MFP19](https://github.com/ZeniteSolar/MFP19) - Módulo Fonte Principal 2019  
 [MIC19](https://github.com/ZeniteSolar/MIC19) - Módulo de Interface de Controle 2019  
 [MSC19](https://github.com/ZeniteSolar/MSC19) - Módulo de Sensores CAN 2019  
 [MVC19](https://github.com/ZeniteSolar/MVC19) - Módulo de Voltímetro (Display) CAN 2019  
 
-## Módulos Instalados no Sistema Estável:
+## Instalados no Sistema:
 [ZSS18](https://github.com/ZeniteSolar/ZSS18) - Shield Simplificado para o Módulo Controlador de Carga 2018  
 [MCC18](https://github.com/ZeniteSolar/MCC18) - Módulo Controlador de Carga 2018  
 [MAB19](https://github.com/ZeniteSolar/MAB18) - Modulo de Acionamento das Bombas de Porão 2018  
@@ -19,7 +22,7 @@
 [MCS17](https://github.com/ZeniteSolar/MCS17) - Módulo Carregamento do Sistema 2017  
 [MAM17](https://github.com/ZeniteSolar/MAM17) - Módulo de Acionamento do Motor 2017  
 
-## Módulos Obsoletos:
+## Obsoletos:
 [ZCS18](https://github.com/ZeniteSolar/ZCS18) - Shield, descontinuado por falhas.  
 [DRV18](https://github.com/ZeniteSolar/DRV18) - Driver meia-ponte para mosfets 2018  
 [MAD17](https://github.com/ZeniteSolar/MAD17) - Módulo de Aquisição de Dados 2017  
