@@ -25,7 +25,7 @@ Sistema da embarcação Guarapuvu II - Zênite Solar
 
 
 ## Obsoletos:
-- [ ] [ZCS18](https://github.com/ZeniteSolar/ZCS18) - Shield, descontinuado por falhas.  
+- [ ] [ZCS18](https://github.com/ZeniteSolar/ZCS18) - Shield CAN, descontinuado por falhas e adoção de outras estratégias  
 - [ ] [DRV18](https://github.com/ZeniteSolar/DRV18) - Driver meia-ponte para mosfets 2018  
 - [ ] [MAD17](https://github.com/ZeniteSolar/MAD17) - Módulo de Aquisição de Dados 2017  
 - [ ] [MCC17](https://github.com/ZeniteSolar/MCC17) - Módulo Controlador de Carga 2017  
