@@ -1,4 +1,4 @@
-# Lista de Módulo
+# Lista de Módulos
 Sistema da embarcação Guarapuvu II - Zênite Solar
 
 ## Em Fase de Desenvolvimento:
