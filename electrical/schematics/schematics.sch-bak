@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 1 35
+Sheet 1 36
 Title ""
 Date ""
 Rev ""
@@ -399,31 +399,15 @@ F4 "CAN" I R 9150 9300 50
 $EndSheet
 Wire Bus Line
 	9950 6050 9950 6750
-Wire Bus Line
-	9950 7400 9950 8050
-Connection ~ 9950 7400
-Wire Bus Line
-	9150 7400 9950 7400
 Connection ~ 9950 8050
-Wire Bus Line
-	9150 8650 9950 8650
 $Sheet
-S 8600 7050 550  400 
+S 8600 7050 650  450 
 U 5CE20554
 F0 "Módulo de Acionamento da Bomba de porão 3" 50
 F1 "MAB19.sch" 50
-F2 "Bat_P" T R 9150 7200 50 
-F3 "Bat_N" T R 9150 7300 50 
-F4 "CAN" I R 9150 7400 50 
-$EndSheet
-$Sheet
-S 8600 8300 550  400 
-U 5CE20542
-F0 "Módulo de Acionamento da Bomba de porão 1" 50
-F1 "MAB19.sch" 50
-F2 "Bat_P" T R 9150 8450 50 
-F3 "Bat_N" T R 9150 8550 50 
-F4 "CAN" I R 9150 8650 50 
+F2 "Bat_P" T R 9250 7200 50 
+F3 "Bat_N" T R 9250 7300 50 
+F4 "CAN" I R 9250 7400 50 
 $EndSheet
 Wire Wire Line
 	7400 6600 8600 6600
@@ -443,8 +427,6 @@ $EndSheet
 Wire Bus Line
 	9550 6750 9950 6750
 Connection ~ 9950 6750
-Wire Bus Line
-	9950 6750 9950 7400
 Wire Wire Line
 	7400 2000 7400 6600
 Wire Wire Line
@@ -466,31 +448,11 @@ $EndSheet
 Wire Wire Line
 	11900 7200 11750 7200
 Wire Wire Line
-	9250 7850 9250 7200
-Connection ~ 9250 7200
-Wire Wire Line
-	9250 7200 9150 7200
-Wire Wire Line
-	9350 7950 9350 7300
-Connection ~ 9350 7300
-Wire Wire Line
-	9350 7300 9150 7300
-Wire Wire Line
-	9150 8450 9450 8450
-Wire Wire Line
 	11900 7300 11700 7300
 Wire Wire Line
-	9150 8550 9550 8550
-Connection ~ 9550 7300
+	9450 7200 9450 7850
 Wire Wire Line
-	9550 7300 9350 7300
-Connection ~ 9450 7200
-Wire Wire Line
-	9450 7200 9250 7200
-Wire Wire Line
-	9450 7200 9450 8450
-Wire Wire Line
-	9550 7300 9550 8550
+	9550 7300 9550 7950
 Wire Wire Line
 	9150 9100 10800 9100
 $Sheet
@@ -561,8 +523,6 @@ Connection ~ 9950 9950
 Wire Bus Line
 	9950 9950 9850 9950
 Wire Wire Line
-	10800 9100 11050 9100
-Wire Wire Line
 	11900 9200 11700 9200
 Wire Wire Line
 	11900 9850 11150 9850
@@ -573,25 +533,17 @@ Wire Wire Line
 Wire Wire Line
 	11250 9750 11250 9100
 Connection ~ 11150 9200
-Wire Wire Line
-	11150 9200 10950 9200
 Connection ~ 11250 9100
 Wire Wire Line
 	11250 9100 11350 9100
-Wire Bus Line
-	9150 8050 9950 8050
-Wire Wire Line
-	9150 7950 9350 7950
-Wire Wire Line
-	9150 7850 9250 7850
 $Sheet
-S 8600 7700 550  400 
+S 8600 7700 650  450 
 U 5CE2054B
 F0 "Módulo de Acionamento da Bomba de porão 2" 50
 F1 "MAB19.sch" 50
-F2 "Bat_P" T R 9150 7850 50 
-F3 "Bat_N" T R 9150 7950 50 
-F4 "CAN" I R 9150 8050 50 
+F2 "Bat_P" T R 9250 7850 50 
+F3 "Bat_N" T R 9250 7950 50 
+F4 "CAN" I R 9250 8050 50 
 $EndSheet
 Wire Bus Line
 	9950 8050 9950 8650
@@ -672,24 +624,13 @@ Wire Wire Line
 Wire Wire Line
 	11750 9100 11900 9100
 $Sheet
-S 11900 10250 550  400 
+S 11900 8300 550  400 
 U 5DCFE416
 F0 "Ventiladores" 50
 F1 "Fans.sch" 50
-F2 "Bat_P" T L 11900 10400 50 
-F3 "Bat_N" T L 11900 10500 50 
-F4 "CAN" I L 11900 10600 50 
+F2 "Bat_P" T L 11900 8450 50 
+F3 "Bat_N" T L 11900 8550 50 
 $EndSheet
-Wire Wire Line
-	11900 10400 11050 10400
-Wire Wire Line
-	11900 10500 10950 10500
-Connection ~ 10950 9200
-Wire Wire Line
-	10950 9200 10700 9200
-Wire Wire Line
-	11050 10400 11050 9100
-Connection ~ 11050 9100
 $Comp
 L Switch:SW_DPST_x2 SW?
 U 1 1 5DD21B88
@@ -705,16 +646,8 @@ Wire Wire Line
 	10200 1750 10500 1750
 Wire Wire Line
 	10700 9200 9150 9200
-Wire Wire Line
-	11050 9100 11250 9100
 Wire Bus Line
 	9950 9950 11900 9950
-Wire Bus Line
-	11900 10600 9950 10600
-Wire Bus Line
-	9950 10600 9950 9950
-Wire Wire Line
-	10950 9200 10950 10500
 Wire Wire Line
 	5550 2000 7400 2000
 Wire Wire Line
@@ -763,12 +696,98 @@ Wire Bus Line
 Connection ~ 6000 5450
 Wire Bus Line
 	6000 5450 6000 6200
-Text HLabel 8600 9100 2    50   Output ~ 0
-OUT
 Text HLabel 8600 8450 2    50   Output ~ 0
-OUT
+OUT_P
+$Sheet
+S 7500 8300 500  350 
+U 5DD76A89
+F0 "Bomba de porão 1" 50
+F1 "PUMP.sch" 50
+$EndSheet
+Text HLabel 8600 8550 2    50   Output ~ 0
+OUT_N
+$Sheet
+S 8600 8300 650  450 
+U 5CE20542
+F0 "Módulo de Acionamento da Bomba de porão 1" 50
+F1 "MAB19.sch" 50
+F2 "Bat_P" T R 9250 8450 50 
+F3 "Bat_N" T R 9250 8550 50 
+F4 "CAN" I R 9250 8650 50 
+$EndSheet
 Text HLabel 8600 7850 2    50   Output ~ 0
-OUT
+OUT_P
+Text HLabel 8600 7950 2    50   Output ~ 0
+OUT_N
+Wire Bus Line
+	9950 6750 9950 7400
 Text HLabel 8600 7200 2    50   Output ~ 0
-OUT
+OUT_P
+Text HLabel 8600 7300 2    50   Output ~ 0
+OUT_N
+Wire Bus Line
+	9250 8650 9950 8650
+Wire Bus Line
+	9250 8050 9950 8050
+Wire Bus Line
+	9250 7400 9950 7400
+Connection ~ 9950 7400
+Wire Bus Line
+	9950 7400 9950 8050
+Wire Wire Line
+	9250 7300 9550 7300
+Connection ~ 9550 7300
+Wire Wire Line
+	9250 7200 9450 7200
+Connection ~ 9450 7200
+Wire Wire Line
+	9250 7850 9450 7850
+Connection ~ 9450 7850
+Wire Wire Line
+	9450 7850 9450 8450
+Wire Wire Line
+	9250 7950 9550 7950
+Connection ~ 9550 7950
+Wire Wire Line
+	9550 7950 9550 8550
+Wire Wire Line
+	9250 8450 9450 8450
+Wire Wire Line
+	9250 8550 9550 8550
+Text HLabel 8000 8450 0    50   Output ~ 0
+PUMP_P
+Text HLabel 8000 8550 0    50   Output ~ 0
+PUMP_N
+Wire Wire Line
+	8000 8450 8600 8450
+Wire Wire Line
+	8000 8550 8600 8550
+$Sheet
+S 7500 7700 500  350 
+U 5DDA6A8C
+F0 "Bomba de porão 2" 50
+F1 "PUMP.sch" 50
+$EndSheet
+Text HLabel 8000 7950 0    50   Output ~ 0
+PUMP_N
+Text HLabel 8000 7850 0    50   Output ~ 0
+PUMP_P
+Wire Wire Line
+	8000 7950 8600 7950
+Wire Wire Line
+	8000 7850 8600 7850
+Wire Wire Line
+	10800 9100 11250 9100
+Wire Wire Line
+	10700 9200 11150 9200
+Wire Wire Line
+	11200 7850 11200 8450
+Wire Wire Line
+	11200 8450 11900 8450
+Connection ~ 11200 7850
+Wire Wire Line
+	11100 7950 11100 8550
+Wire Wire Line
+	11100 8550 11900 8550
+Connection ~ 11100 7950
 $EndSCHEMATC
