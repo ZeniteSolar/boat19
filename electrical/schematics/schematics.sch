@@ -1,10 +1,9 @@
 EESchema Schematic File Version 4
-LIBS:schematics-cache
 EELAYER 30 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
-Sheet 1 34
+Sheet 1 35
 Title ""
 Date ""
 Rev ""
@@ -33,11 +32,6 @@ F4 "Bat_P_Fused_out" O R 5550 1900 50
 F5 "Bat_N_Fused_out" O R 5550 2000 50 
 F6 "CAN" I R 5550 2250 50 
 $EndSheet
-Wire Wire Line
-	4200 6600 4200 1650
-Wire Wire Line
-	4600 1650 4200 1650
-Connection ~ 4200 1650
 Wire Wire Line
 	3350 1750 3550 1750
 $Sheet
@@ -89,32 +83,27 @@ Connection ~ 7900 1900
 Connection ~ 7800 2000
 Wire Wire Line
 	3350 1650 3500 1650
-Wire Wire Line
-	4100 7200 4100 1750
-Connection ~ 4100 1750
-Wire Wire Line
-	4100 1750 4600 1750
 Connection ~ 7700 1900
 Connection ~ 7600 2000
 Wire Wire Line
-	4600 7200 4100 7200
+	4600 7950 4100 7950
 Wire Wire Line
-	4600 6600 4200 6600
+	4600 7350 4200 7350
 $Sheet
-S 4600 6450 550  350 
+S 4600 7200 550  350 
 U 5CCE35CC
 F0 "Módulo Sensor CAN - Amperímetro IN" 50
 F1 "MSCA19.sch" 50
-F2 "Hall" I L 4600 6600 50 
-F3 "CAN" I R 5150 6750 50 
+F2 "Hall" I L 4600 7350 50 
+F3 "CAN" I R 5150 7500 50 
 $EndSheet
 $Sheet
-S 4600 7050 550  350 
+S 4600 7800 550  350 
 U 5CCE3650
 F0 "Módulo Sensor CAN - Amperímetro OUT" 50
 F1 "MSCA19.sch" 50
-F2 "Hall" I L 4600 7200 50 
-F3 "CAN" I R 5150 7350 50 
+F2 "Hall" I L 4600 7950 50 
+F3 "CAN" I R 5150 8100 50 
 $EndSheet
 $Sheet
 S 12050 1450 500  500 
@@ -271,11 +260,11 @@ F5 "Bat_N" I L 8600 2950 50
 F6 "CAN" I R 9550 3150 50 
 $EndSheet
 $Sheet
-S 4600 5750 550  400 
+S 4600 6500 550  400 
 U 5CE2020F
 F0 "Módulo CAN para RaspberryPI" 50
 F1 "MSCV19.sch" 50
-F2 "CAN" I R 5150 6100 50 
+F2 "CAN" I R 5150 6850 50 
 $EndSheet
 $Sheet
 S 4600 2600 550  400 
@@ -284,18 +273,12 @@ F0 "Módulo Fonte Principal 18V" 50
 F1 "MFP19.sch" 50
 F2 "CAN" I R 5150 2950 50 
 $EndSheet
-Wire Wire Line
-	5550 1900 6300 1900
-Wire Wire Line
-	5550 2000 6200 2000
 $Sheet
 S 4600 3200 550  400 
 U 5CE2052D
 F0 "Módulo de Interface de Controle" 50
 F1 "MIC19.sch" 50
-F2 "Bat_P" T R 5150 3350 50 
-F3 "Bat_N" T R 5150 3450 50 
-F4 "CAN" I R 5150 3550 50 
+F2 "CAN" I R 5150 3550 50 
 $EndSheet
 $Sheet
 S 4600 3800 550  400 
@@ -307,18 +290,18 @@ $EndSheet
 Wire Bus Line
 	5550 2250 6000 2250
 Wire Bus Line
-	6000 6750 5150 6750
+	6000 7500 5150 7500
 Wire Bus Line
 	6000 2250 6000 2950
 Wire Bus Line
-	5150 7350 6000 7350
+	5150 8100 6000 8100
 Wire Bus Line
-	6000 7350 6000 6750
-Connection ~ 6000 6750
+	6000 8100 6000 7500
+Connection ~ 6000 7500
 Wire Bus Line
-	5150 6100 6000 6100
+	5150 6850 6000 6850
 Wire Bus Line
-	6000 6100 6000 6750
+	6000 6850 6000 7500
 Wire Bus Line
 	5150 4150 6000 4150
 Connection ~ 6000 3550
@@ -366,19 +349,16 @@ Wire Bus Line
 	11850 2150 9950 2150
 Connection ~ 9950 2150
 Connection ~ 6000 4150
-Connection ~ 6000 6100
+Connection ~ 6000 6850
 Wire Bus Line
 	6000 4150 6000 4800
 Wire Bus Line
-	6000 4800 6000 5450
-Connection ~ 6000 4800
-Wire Bus Line
 	5150 4800 6000 4800
 Wire Bus Line
-	6000 5450 6000 6100
-Connection ~ 6000 5450
+	6000 6200 6000 6850
+Connection ~ 6000 6200
 Wire Bus Line
-	5150 5450 6000 5450
+	5150 6200 6000 6200
 $Sheet
 S 4600 4450 550  400 
 U 5CE203D7
@@ -387,13 +367,13 @@ F1 "MVC19.sch" 50
 F2 "CAN" I R 5150 4800 50 
 $EndSheet
 $Sheet
-S 4600 5100 550  400 
+S 4600 5850 550  400 
 U 5CCE3151
 F0 "Módulo Sensor CAN - Voltimetro Principal" 50
 F1 "MSCV19.sch" 50
-F2 "Bat_P" T R 5150 5250 50 
-F3 "Bat_N" T R 5150 5350 50 
-F4 "CAN" I R 5150 5450 50 
+F2 "Bat_P" T L 4600 5950 50 
+F3 "Bat_N" T L 4600 6050 50 
+F4 "CAN" I R 5150 6200 50 
 $EndSheet
 Wire Bus Line
 	9950 9950 9150 9950
@@ -545,14 +525,6 @@ Wire Wire Line
 Wire Wire Line
 	10700 6600 9550 6600
 Connection ~ 10700 9200
-Wire Wire Line
-	5150 5250 6200 5250
-Wire Wire Line
-	6200 2000 6200 5250
-Wire Wire Line
-	6300 5350 6300 1900
-Wire Wire Line
-	5150 5350 6300 5350
 $Sheet
 S 11900 7700 550  400 
 U 5DC80323
@@ -625,12 +597,6 @@ Wire Bus Line
 	9950 8050 9950 8650
 Wire Bus Line
 	11900 8050 9950 8050
-Connection ~ 6200 2000
-Wire Wire Line
-	6200 2000 7400 2000
-Connection ~ 6300 1900
-Wire Wire Line
-	6300 1900 7500 1900
 $Comp
 L Device:Fuse F?
 U 1 1 5DCBD654
@@ -642,10 +608,6 @@ F 3 "~" H 3700 1750 50  0001 C CNN
 	1    3700 1750
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	3900 1650 4200 1650
-Wire Wire Line
-	3850 1750 4100 1750
 $Comp
 L Switch:SW_DPST_x2 SW?
 U 1 1 5DCC5EB3
@@ -753,4 +715,64 @@ Wire Bus Line
 	9950 10600 9950 9950
 Wire Wire Line
 	10950 9200 10950 10500
+Wire Wire Line
+	5550 2000 7400 2000
+Wire Wire Line
+	5550 1900 7500 1900
+Wire Wire Line
+	4450 5950 4600 5950
+Wire Wire Line
+	4600 6050 4350 6050
+Wire Wire Line
+	3900 1650 4200 1650
+Wire Wire Line
+	3850 1750 4100 1750
+Wire Wire Line
+	4450 1650 4450 5950
+Connection ~ 4450 1650
+Wire Wire Line
+	4450 1650 4600 1650
+Wire Wire Line
+	4350 1750 4350 6050
+Connection ~ 4350 1750
+Wire Wire Line
+	4350 1750 4600 1750
+Wire Wire Line
+	4200 1650 4200 7350
+Connection ~ 4200 1650
+Wire Wire Line
+	4200 1650 4450 1650
+Wire Wire Line
+	4100 1750 4100 7950
+Connection ~ 4100 1750
+Wire Wire Line
+	4100 1750 4350 1750
+Wire Bus Line
+	6000 4800 6000 5450
+Connection ~ 6000 4800
+$Sheet
+S 4600 5100 550  400 
+U 5DD716FA
+F0 "Display Multímetro Secundário" 50
+F1 "MVC19.sch" 50
+$EndSheet
+Text HLabel 5150 5450 0    50   Output ~ 0
+CAN
+Wire Bus Line
+	5150 5450 6000 5450
+Connection ~ 6000 5450
+Wire Bus Line
+	6000 5450 6000 6200
+Text HLabel 8600 8450 2    50   Output ~ 0
+OUT
+Text HLabel 8600 7850 2    50   Output ~ 0
+OUT
+Text HLabel 8600 7200 2    50   Output ~ 0
+OUT
+$Sheet
+S 7450 8300 550  400 
+U 5DD76A89
+F0 "Bomba de Porão 1" 50
+F1 "PUMP.sch" 50
+$EndSheet
 $EndSCHEMATC
