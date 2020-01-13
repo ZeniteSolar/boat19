@@ -3,7 +3,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 30 39
+Sheet 40 40
 Title ""
 Date ""
 Rev ""
@@ -13,8 +13,8 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 1150 1500 0    50   Input ~ 0
-Bat_P
-Text HLabel 1150 1600 0    50   Input ~ 0
-Bat_N
+Text HLabel 1300 875  0    50   Input ~ 0
+motor_P
+Text HLabel 1275 975  0    50   Input ~ 0
+motor_N
 $EndSCHEMATC
