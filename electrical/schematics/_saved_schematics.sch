@@ -310,6 +310,8 @@ F1 "MDE19.sch" 50
 F2 "Bat_P" T R 9250 9500 50 
 F3 "Bat_N" T R 9250 9600 50 
 F4 "CAN" I R 9250 9700 50 
+F5 "motor_P" I L 8700 9425 50 
+F6 "motor_N" I L 8700 9550 50 
 $EndSheet
 Wire Bus Line
 	9950 5800 9950 6500
@@ -886,10 +888,6 @@ Wire Wire Line
 	3900 1400 4200 1400
 Wire Wire Line
 	4050 1075 4050 1500
-Wire Bus Line
-	3950 975  7950 975 
-Wire Bus Line
-	7950 975  7950 6550
 Connection ~ 4050 1500
 Wire Wire Line
 	4050 1500 4100 1500
@@ -897,4 +895,8 @@ Text Label 4325 1075 0    50   ~ 0
 Bat_P
 Text Label 4050 1075 0    50   ~ 0
 Bat_N
+Wire Bus Line
+	3950 975  7950 975 
+Wire Bus Line
+	7950 975  7950 6550
 $EndSCHEMATC
