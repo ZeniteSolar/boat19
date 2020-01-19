@@ -15,7 +15,7 @@ Sistema da embarcação Guarapuvu II - Zênite Solar
 - [x] [MIC19](https://github.com/ZeniteSolar/MIC19) - Módulo de Interface de Controle 2019  
 - [x] [MSC19](https://github.com/ZeniteSolar/MSC19) - Módulo de Sensores CAN 2019  
 - [x] [MVC19](https://github.com/ZeniteSolar/MVC19) - Módulo de Voltímetro (Display) CAN 2019  
-- [x] [MSWI19](https://github.com/ZeniteSolar/MSWI19) - Módule da Interface no Volante 2019  
+- [x] [MSWI19](https://github.com/ZeniteSolar/MSWI19) - Módulo da Interface no Volante 2019  
 - [x] [MDE18]() - Módulo de Direção Elétrica 2018  
 - [x] [ZSS18](https://github.com/ZeniteSolar/ZSS18) - Shield Simplificado para o Módulo Controlador de Carga 2018  
 - [x] [MCC18](https://github.com/ZeniteSolar/MCC18) - Módulo Controlador de Carga 2018  
