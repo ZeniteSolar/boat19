@@ -2,26 +2,27 @@
 Sistema da embarcação Guarapuvu II - Zênite Solar
 
 ## Em Fase de Desenvolvimento:
+- [ ] [MCB19](https://github.com/ZeniteSolar/MCB19) - Módulo de Carregamento de Bateria 2019  
+- [ ] [MCT19](https://github.com/ZeniteSolar/MCT19) - Módulo de Controle de Temperatura 2019  
+- [ ] [MAM19](https://github.com/ZeniteSolar/MAM19) - Módulo de Acionamento do Motor 2019  
+
+## Instalados no Sistema:
 - [x] [MT19](https://github.com/ZeniteSolar/MT19) - Módulo Tacômetro 2019  
 - [x] [MRPC19](https://github.com/ZeniteSolar/MRPC19) - Módulo CAN para RaspberryPI Zero 2019  
 - [x] [MAB19](https://github.com/ZeniteSolar/MAB19) - Módulo de Acionamento das Bombas de Porão 2019  
-- [ ] [MCB19](https://github.com/ZeniteSolar/MCB19) - Módulo de Carregamento de Bateria 2019  
 - [x] [MCS19](https://github.com/ZeniteSolar/MCS19) - Módulo Carregamento do Sistema 2019  
-- [ ] [MCT19](https://github.com/ZeniteSolar/MCT19) - Módulo de Controle de Temperatura 2019  
-- [ ] [MFP19](https://github.com/ZeniteSolar/MFP19) - Módulo Fonte Principal 2019  
+- [x] [MFP19](https://github.com/ZeniteSolar/MFP19) - Módulo Fonte Principal 2019  
 - [x] [MIC19](https://github.com/ZeniteSolar/MIC19) - Módulo de Interface de Controle 2019  
 - [x] [MSC19](https://github.com/ZeniteSolar/MSC19) - Módulo de Sensores CAN 2019  
 - [x] [MVC19](https://github.com/ZeniteSolar/MVC19) - Módulo de Voltímetro (Display) CAN 2019  
 - [x] [MSWI19](https://github.com/ZeniteSolar/MSWI19) - Módule da Interface no Volante 2019  
-
-## Instalados no Sistema:
 - [x] [MDE18]() - Módulo de Direção Elétrica 2018  
 - [x] [ZSS18](https://github.com/ZeniteSolar/ZSS18) - Shield Simplificado para o Módulo Controlador de Carga 2018  
 - [x] [MCC18](https://github.com/ZeniteSolar/MCC18) - Módulo Controlador de Carga 2018  
-- [x] [MA18V17](https://github.com/ZeniteSolar/MA18V17) - Módulo Fonte Principal 2017  
 - [ ] [MAM17](https://github.com/ZeniteSolar/MAM17) - Módulo de Acionamento do Motor 2017  
 
 ## Obsoletos:
+- [ ] [MA18V17](https://github.com/ZeniteSolar/MA18V17) - Módulo Fonte Principal 2017  
 - [ ] [MIC17](https://github.com/ZeniteSolar/MIC17) - Módulo de Interface de Controle 2017  
 - [ ] [MCS17](https://github.com/ZeniteSolar/MCS17) - Módulo Carregamento do Sistema 2017  
 - [ ] [MAB18](https://github.com/ZeniteSolar/MAB18) - Modulo de Acionamento das Bombas de Porão 2018  
