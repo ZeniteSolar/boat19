@@ -19,7 +19,7 @@ Sistema da embarcação Guarapuvu II - Zênite Solar
 - [x] [MDE18]() - Módulo de Direção Elétrica 2018  
 - [x] [ZSS18](https://github.com/ZeniteSolar/ZSS18) - Shield Simplificado para o Módulo Controlador de Carga 2018  
 - [x] [MCC18](https://github.com/ZeniteSolar/MCC18) - Módulo Controlador de Carga 2018  
-- [ ] [MAM17](https://github.com/ZeniteSolar/MAM17) - Módulo de Acionamento do Motor 2017  
+- [x] [MAM17](https://github.com/ZeniteSolar/MAM17) - Módulo de Acionamento do Motor 2017  
 
 ## Obsoletos:
 - [ ] [MA18V17](https://github.com/ZeniteSolar/MA18V17) - Módulo Fonte Principal 2017  
