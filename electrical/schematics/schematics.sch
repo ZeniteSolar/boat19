@@ -1,5 +1,5 @@
 EESchema Schematic File Version 4
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -14,12 +14,12 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 2400 1200 950  500 
+S 1600 1200 950  500 
 U 5CCD4ED0
 F0 "Bateria Principal" 50
 F1 "mainBattery.sch" 50
-F2 "Bat_P_Unfused_Out" O R 3350 1400 50 
-F3 "Bat_N_Unfused_Out" O R 3350 1500 50 
+F2 "Bat_P_Unfused_Out" O R 2550 1400 50 
+F3 "Bat_N_Unfused_Out" O R 2550 1500 50 
 $EndSheet
 $Sheet
 S 4600 1200 950  850 
@@ -32,8 +32,6 @@ F4 "Bat_P_Fused_out" O R 5550 1650 50
 F5 "Bat_N_Fused_out" O R 5550 1750 50 
 F6 "CAN" I R 5550 2000 50 
 $EndSheet
-Wire Wire Line
-	3350 1500 3550 1500
 $Sheet
 S 8600 1200 900  750 
 U 5CCE2823
@@ -73,8 +71,6 @@ F1 "solarPanel.sch" 50
 F2 "Panel_P" I L 10500 4800 50 
 F3 "Panel_N" I L 10500 4900 50 
 $EndSheet
-Wire Wire Line
-	3350 1400 3500 1400
 Wire Wire Line
 	4600 7700 4100 7700
 Wire Wire Line
@@ -375,25 +371,17 @@ Wire Wire Line
 Wire Wire Line
 	10700 6350 9550 6350
 $Sheet
-S 11900 7450 550  400 
+S 4650 8150 550  400 
 U 5DC80323
 F0 "Módulo Sensor CAN - Voltimetro Auxiliar" 50
 F1 "MSCV19.sch" 50
-F2 "Bat_P" T L 11900 7600 50 
-F3 "Bat_N" T L 11900 7700 50 
-F4 "CAN" I L 11900 7800 50 
+F2 "Bat_P" T L 4650 8300 50 
+F3 "Bat_N" T L 4650 8400 50 
+F4 "CAN" I L 4650 8500 50 
 $EndSheet
-Wire Wire Line
-	11900 7600 11200 7600
-Wire Wire Line
-	11200 7600 11200 6950
 Connection ~ 11200 6950
 Wire Wire Line
 	11200 6950 11000 6950
-Wire Wire Line
-	11900 7700 11100 7700
-Wire Wire Line
-	11100 7700 11100 7050
 Connection ~ 11100 7050
 Wire Wire Line
 	11100 7050 10900 7050
@@ -420,8 +408,6 @@ Connection ~ 11150 8950
 Connection ~ 11250 8850
 Wire Wire Line
 	11250 8850 11350 8850
-Wire Bus Line
-	11900 7800 10950 7800
 $Comp
 L Device:Fuse F?
 U 1 1 5DCBD654
@@ -597,22 +583,15 @@ PUMP_N
 Wire Wire Line
 	10800 8850 11250 8850
 Wire Wire Line
-	11200 7600 11200 8200
-Wire Wire Line
 	11200 8200 11900 8200
-Connection ~ 11200 7600
-Wire Wire Line
-	11100 7700 11100 8300
 Wire Wire Line
 	11100 8300 11900 8300
-Connection ~ 11100 7700
 Wire Bus Line
 	9250 10350 10050 10350
 Wire Bus Line
 	11900 9700 10950 9700
 Wire Bus Line
 	10950 9700 10950 7800
-Connection ~ 10950 7800
 Wire Bus Line
 	10950 7800 9950 7800
 Text HLabel 8350 8900 2    50   Output ~ 0
@@ -915,8 +894,39 @@ Wire Wire Line
 	8525 9725 8525 9550
 Wire Wire Line
 	8525 9550 8700 9550
+Wire Wire Line
+	11100 7050 11100 8300
+Wire Wire Line
+	11200 6950 11200 8200
+Wire Bus Line
+	4650 8500 4450 8500
+Wire Bus Line
+	4450 8500 4450 8900
+Wire Bus Line
+	4450 8900 6000 8900
+Wire Bus Line
+	6000 8900 6000 7850
+Connection ~ 6000 7850
+Wire Wire Line
+	2550 1400 2700 1400
+Wire Wire Line
+	2550 1500 2950 1500
+Wire Wire Line
+	2700 1400 2700 8300
+Wire Wire Line
+	2700 8300 4650 8300
+Connection ~ 2700 1400
+Wire Wire Line
+	2700 1400 3500 1400
+Wire Wire Line
+	4650 8400 2950 8400
+Wire Wire Line
+	2950 8400 2950 1500
 Wire Bus Line
 	3950 975  7950 975 
 Wire Bus Line
 	7950 975  7950 6550
+Connection ~ 2950 1500
+Wire Wire Line
+	2950 1500 3550 1500
 $EndSCHEMATC
