@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:schematics-cache
 EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
@@ -922,11 +923,11 @@ Wire Wire Line
 	4650 8400 2950 8400
 Wire Wire Line
 	2950 8400 2950 1500
+Connection ~ 2950 1500
+Wire Wire Line
+	2950 1500 3550 1500
 Wire Bus Line
 	3950 975  7950 975 
 Wire Bus Line
 	7950 975  7950 6550
-Connection ~ 2950 1500
-Wire Wire Line
-	2950 1500 3550 1500
 $EndSCHEMATC
