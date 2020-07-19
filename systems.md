@@ -21,7 +21,7 @@ Sistema da embarcação Guarapuvu II - Zênite Solar
 - [x] [MVC19](https://github.com/ZeniteSolar/MVC19) - Módulo de Voltímetro (Display) CAN 2019  
   - Duas unidades  
 - [x] [MSWI19](https://github.com/ZeniteSolar/MSWI19) - Módulo da Interface no Volante 2019  
-- [x] [ZSS18](https://github.com/ZeniteSolar/ZSS18) - Shield Simplificado para o Módulo Controlador de Carga 2018  
+- [x] [MCCCS](https://github.com/ZeniteSolar/MCC_CAN_Shield) - Shield para o Módulo Controlador de Carga 2018
   - Quatro unidades
 - [x] [MCC18](https://github.com/ZeniteSolar/MCC18) - Módulo Controlador de Carga 2018  
   - Quatro unidades  
@@ -30,6 +30,7 @@ Sistema da embarcação Guarapuvu II - Zênite Solar
 
 
 ## Obsoletos:
+- [ ] [ZSS18](https://github.com/ZeniteSolar/ZSS18) - Shield Simplificado para o Módulo Controlador de Carga 2018  
 - [ ] [MA18V17](https://github.com/ZeniteSolar/MA18V17) - Módulo Fonte Principal 2017  
 - [ ] [MIC17](https://github.com/ZeniteSolar/MIC17) - Módulo de Interface de Controle 2017  
 - [ ] [MCS17](https://github.com/ZeniteSolar/MCS17) - Módulo Carregamento do Sistema 2017  
