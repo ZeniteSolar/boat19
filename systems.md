@@ -2,11 +2,12 @@
 Sistema da embarcação Guarapuvu II - Zênite Solar
 
 ## Em Fase de Desenvolvimento:
-- [ ] [MCB19](https://github.com/ZeniteSolar/MCB19) - Módulo de Carregamento de Bateria 2019  
 - [ ] [MCT19](https://github.com/ZeniteSolar/MCT19) - Módulo de Controle de Temperatura 2019  
 - [ ] [MAM19](https://github.com/ZeniteSolar/MAM19) - Módulo de Acionamento do Motor 2019  
 
 ## Instalados no Sistema:
+- [x] [MCB19](https://github.com/ZeniteSolar/MCB19) - Módulo de Carregamento de Bateria 2019  
+  - Duas unidades
 - [x] [MT19](https://github.com/ZeniteSolar/MT19) - Módulo Tacômetro 2019  
 - [x] [MRPC19](https://github.com/ZeniteSolar/MRPC19) - Módulo CAN para RaspberryPI Zero 2019  
 - [x] [MAB19](https://github.com/ZeniteSolar/MAB19) - Módulo de Acionamento das Bombas de Porão 2019  
