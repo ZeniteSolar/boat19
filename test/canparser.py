@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 import json
 import sys
+import glob, os
 import itertools
 from timeit import default_timer as timer
-import vaex
+import pandas
 
 def dbg(obj):
     print(type(obj), '\n', obj)
 
 def parse_row(row):
     try:
-        _, interface, msg = row.split()
-#         timestamp = timestamp.strip('()')
-        timestamp = 0
+        timestamp, interface, msg = row.split()
+        timestamp = timestamp.strip('()')
         topic_id, payload = msg.split('#')
         topic_id = int(topic_id, 16)
         payload = [byte for byte in bytearray.fromhex(payload)]
@@ -44,7 +44,7 @@ def load_can_ids(filename: str, verbose=False):
     except Exception as e:
         sys.stderr.write('Failed loading CAN IDS: %s\n' % (str(e)))
         sys.exit(1)
-        
+
 def find_module(schema: list, parsed_signature: bytearray):
     return next((module for module in schema['modules'] if module['signature'] == parsed_signature), None)
 
@@ -132,7 +132,7 @@ def process_row(row):
 #     parsed_topic_description = topic['description']
 
     parsed_data_dict_list = interpret_payload(topic, parsed_payload)
-    
+
     timestamp_list = []
     module_name_list = []
     topic_name_list = []
@@ -156,36 +156,65 @@ def process_row(row):
         "data": data_list,
         "unit": unit_list
     }
-    return vaex.from_dict(parsed_dict)
+    return parsed_dict
 
-def process_file(filename: str, verbose=False):
+def process_file(input_filename: str, verbose=False):
     global schema
-    
+
     time_start = timer()
+
     schema = load_can_ids('can_ids.json', verbose)
 
-    df = vaex.read_csv(filename, names=['log_data'], engine='c')
-    
-    parsed_df = None
-    for index, row in df.iterrows():
-        processed_df = process_row(row['log_data'])
-        if (processed_df == None):
-            continue
+    chunksize = 10000
+    reader = pandas.read_csv(input_filename, names=['log_data'], engine='c', chunksize=chunksize)
 
-        if (parsed_df != None):
-            parsed_df = vaex.concat([parsed_df, processed_df])
-        else:
-            parsed_df = processed_df
-        
-    parsed_df.export(path=filename + '.hdf5')
+    total_input_lines = 0
+    total_output_lines = 0
+
+    for c_index, chunk in enumerate(reader):
+        chunk_time_start = timer()
+        parsed_df_list = []
+        for index, row in chunk.iterrows():
+            processed_df = process_row(row['log_data'])
+            if (processed_df == None):
+                continue
+            parsed_df_list += [pandas.DataFrame(processed_df)]
+
+        parsed_df = pandas.concat(parsed_df_list)
+        output_filename = input_filename + '_chunk_' + str(c_index) + '.hdf5'
+        parsed_df.to_hdf(output_filename, 'log')
+
+        chunk_time_end = timer()
+        chunk_time_elapsed = chunk_time_end - chunk_time_start
+        total_input_lines += len(chunk)
+        total_output_lines += len(parsed_df)
+        print(f"Chunk {c_index}, elapsed: {chunk_time_elapsed} s, output/input: {total_output_lines}/{total_input_lines} lines")
 
     time_end = timer()
     time_elapsed = time_end - time_start
-    print('Report:')
-    print('\tElapsed time:', time_elapsed, 'seconds')
-    print('\tInput lines:', len(df))
-    print('\tOutput lines:', len(parsed_df))
-    print('\tConversion rate:', len(parsed_df) / time_elapsed, 'lines per seconds')
+
+    return {
+        'Input File Name': input_filename,
+        'Output File Name': output_filename,
+        'Elapsed time': time_elapsed,
+        'Input lines': total_input_lines,
+        'Output lines': total_output_lines
+    }
+
+def process_dataset(dataset_path: str, filename_prefix: str):
+    input_filename_glob = dataset_path + '/' + filename_prefix + '.log'
+
+    input_file_list = glob.glob(input_filename_glob)
+
+    for input_filename in input_file_list:
+        print('Processing file:', input_filename)
+        report = process_file(input_filename)
+
+        print('Report:')
+        print('\tElapsed time:', report['Elapsed time'], 'seconds')
+        print('\tConversion rate:', report['Elapsed time'] * 1000 / report['Input lines'], 'ms per line')
 
 if __name__ == '__main__':
-    process_file('test_small.log')
+    dataset_path = '.'
+    filename_prefix = 'test_mid_*'
+    process_dataset(dataset_path, filename_prefix)
