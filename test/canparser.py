@@ -2,13 +2,17 @@
 import json
 import sys
 import itertools
-import pandas as pd
+from timeit import default_timer as timer
+import vaex
 
+def dbg(obj):
+    print(type(obj), '\n', obj)
 
-def parse_line(line):
+def parse_row(row):
     try:
-        timestamp, interface, msg = line.split()
-        timestamp = timestamp.strip('()')
+        _, interface, msg = row.split()
+#         timestamp = timestamp.strip('()')
+        timestamp = 0
         topic_id, payload = msg.split('#')
         topic_id = int(topic_id, 16)
         payload = [byte for byte in bytearray.fromhex(payload)]
@@ -21,7 +25,7 @@ def parse_line(line):
             'payload': payload
         }
     except:
-        print(f"Warning: fail to parse line: {line}. Ignoring...")
+        print(f"Warning: fail to parse row: {row}. Ignoring...")
         return None
 
 def load_can_ids(filename: str, verbose=False):
@@ -104,57 +108,84 @@ def interpret_payload(topic, parsed_payload):
 
     return payload_data_list
 
-def process_file(filename: str, verbose=False):
-    schema = load_can_ids('can_ids.json', verbose)
-    
+def process_row(row):
+    parsed = parse_row(row)
     parsed_dataset = []
-    
-    try: 
-        with open(filename) as candump_file:
-            for line_number, line in enumerate(candump_file):
-                parsed = parse_line(line)
-                if (parsed == None):
-                    continue
-                
-                parsed_timestamp = parsed['timestamp']
-                parsed_signature = parsed['payload'][0]
-                parsed_payload = parsed['payload'][1:]
-                parsed_topic_id = parsed['topic_id']
-                
-                module = find_module(schema, parsed_signature)
-                if (module == None):
-                    continue
-                parsed_module_name = module['name']
-#                 parsed_module_description = module['description']
-                
-                topic = find_topic(module, parsed_topic_id)
-                if (topic == None):
-                    continue
-                parsed_topic_name = topic['name']
-#                 parsed_topic_description = topic['description']
-                
-                parsed_data_dict_list = interpret_payload(topic, parsed_payload)
-                
-                for parsed_data_dict in parsed_data_dict_list:
-                    parsed_dict = {
-                        "timestamp": parsed_timestamp,
-                        "module_name": parsed_module_name,
-                        "topic_name": parsed_topic_name,
-                        "byte_name": parsed_data_dict['byte_name'],
-                        "data": parsed_data_dict['data'],
-                        "unit": parsed_data_dict['unit']
-                    }
-                    parsed_dataset += [parsed_dict]
-                
-    except Exception as e:
-        sys.stderr.write('Failed loading log file: %s\n' % (str(e)))
-        sys.exit(1)
+    if (parsed == None):
+        return None
 
-    output_filename = filename + '.csv'
-    print('Writing to:', output_filename)
-    df = pd.DataFrame(parsed_dataset)
-    df.to_csv(output_filename, index=False)
-    print(df.tail())
+    parsed_timestamp = parsed['timestamp']
+    parsed_signature = parsed['payload'][0]
+    parsed_payload = parsed['payload'][1:]
+    parsed_topic_id = parsed['topic_id']
+
+    module = find_module(schema, parsed_signature)
+    if (module == None):
+        return None
+    parsed_module_name = module['name']
+#     parsed_module_description = module['description']
+
+    topic = find_topic(module, parsed_topic_id)
+    if (topic == None):
+        return None
+    parsed_topic_name = topic['name']
+#     parsed_topic_description = topic['description']
+
+    parsed_data_dict_list = interpret_payload(topic, parsed_payload)
+    
+    timestamp_list = []
+    module_name_list = []
+    topic_name_list = []
+    byte_name_list = []
+    data_list = []
+    unit_list = []
+
+    for parsed_data_dict in parsed_data_dict_list:
+        timestamp_list += [parsed_timestamp]
+        module_name_list += [parsed_module_name]
+        topic_name_list += [parsed_topic_name]
+        byte_name_list += [parsed_data_dict['byte_name']]
+        data_list += [parsed_data_dict['data']]
+        unit_list += [parsed_data_dict['unit']]
+
+    parsed_dict = {
+        "timestamp": timestamp_list,
+        "module_name": module_name_list,
+        "topic_name": topic_name_list,
+        "byte_name": byte_name_list,
+        "data": data_list,
+        "unit": unit_list
+    }
+    return vaex.from_dict(parsed_dict)
+
+def process_file(filename: str, verbose=False):
+    global schema
+    
+    time_start = timer()
+    schema = load_can_ids('can_ids.json', verbose)
+
+    df = vaex.read_csv(filename, names=['log_data'], engine='c')
+    
+    parsed_df = None
+    for index, row in df.iterrows():
+        processed_df = process_row(row['log_data'])
+        if (processed_df == None):
+            continue
+
+        if (parsed_df != None):
+            parsed_df = vaex.concat([parsed_df, processed_df])
+        else:
+            parsed_df = processed_df
+        
+    parsed_df.export(path=filename + '.hdf5')
+
+    time_end = timer()
+    time_elapsed = time_end - time_start
+    print('Report:')
+    print('\tElapsed time:', time_elapsed, 'seconds')
+    print('\tInput lines:', len(df))
+    print('\tOutput lines:', len(parsed_df))
+    print('\tConversion rate:', len(parsed_df) / time_elapsed, 'lines per seconds')
 
 if __name__ == '__main__':
     process_file('test_small.log')
